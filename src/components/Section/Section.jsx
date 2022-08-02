@@ -23,6 +23,6 @@ export default Section;
 
 Section.propTypes = {
   title: PropTypes.string.isRequired,
-  state: PropTypes.array.isRequired,
+  state: PropTypes.object.isRequired,
   onLeaveFeedback: PropTypes.func.isRequired,
 }
