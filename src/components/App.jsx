@@ -15,12 +15,6 @@ class App extends Component {
         : event.target.className === 'neutral' ? { neutral: prevstate.neutral + 1 } : { bad: prevstate.bad + 1 }
       );
   };
-
-  countTotalFeedback = () => {
-    
-    const total = this.state.good + this.state.neutral + this.state.bad;
-
-  };
   // countPositiveFeedbackPercentage();
 
   render() {
