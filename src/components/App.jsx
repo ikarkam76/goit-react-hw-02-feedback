@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import Statistics from "./Statistics/Statistics";
+import FeedbackOptions from "./FeedbackOptions/FeedbackOptions";
+import Section from "./Section/Section";
 
 
 class App extends Component {
@@ -11,9 +14,9 @@ class App extends Component {
   onLeaveFeedback = event => {
     this.setState(
       prevstate =>
-        event.target.className === 'good'
+        event.target.id === 'good'
           ? { good: prevstate.good + 1 }
-          : event.target.className === 'neutral'
+          : event.target.id === 'neutral'
           ? { neutral: prevstate.neutral + 1 }
           : { bad: prevstate.bad + 1 },
       this.countTotalFeedback,
@@ -31,37 +34,22 @@ class App extends Component {
 
   countPositiveFeedbackPercentage = () => {
     this.setState({
-      percentage:
-        Math.round((
-          this.state.good /
-            (this.state.good + this.state.neutral + this.state.bad)
-        ) * 100),
+      percentage: Math.round(this.state.good / this.state.total * 100),
     });
   };
 
   render() {
     return (
       <div>
-        <h2>Please leave feedback</h2>
-        <button type="button" className="good" onClick={this.onLeaveFeedback}>
-          Good
-        </button>
-        <button
-          type="button"
-          className="neutral"
-          onClick={this.onLeaveFeedback}
-        >
-          Neutral
-        </button>
-        <button type="button" className="bad" onClick={this.onLeaveFeedback}>
-          Bad
-        </button>
-        <h3>Statistics</h3>
-        <p>Good: {this.state.good}</p>
-        <p>Neutral: {this.state.neutral}</p>
-        <p>Bad: {this.state.bad}</p>
-        <p>Total: {this.state.total}</p>
-        <p>Positive feedback: {this.state.percentage}%</p>
+        <Section title="Please leave feedback" />
+        <FeedbackOptions onLeaveFeedback={this.onLeaveFeedback} />
+        <Statistics
+          good={this.state.good}
+          neutral={this.state.neutral}
+          bad={this.state.bad}
+          total={this.state.total}
+          positivePercentage={this.state.percentage}
+        />
       </div>
     );
   }
