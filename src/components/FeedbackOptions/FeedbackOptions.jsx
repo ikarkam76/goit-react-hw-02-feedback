@@ -1,8 +1,10 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
+import Controls from "components/FeedbackOptions/FeedbackOptions.styled";
+
 const FeedbackOptions = ({ onLeaveFeedback }) => (
-  <div>
+  <Controls>
     <button type="button" id="good" onClick={onLeaveFeedback}>
       Good
     </button>
@@ -12,7 +14,7 @@ const FeedbackOptions = ({ onLeaveFeedback }) => (
     <button type="button" id="bad" onClick={onLeaveFeedback}>
       Bad
     </button>
-  </div>
+  </Controls>
 );
 
 
