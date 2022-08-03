@@ -2,19 +2,22 @@ import React from "react";
 
 import Controls from "components/FeedbackOptions/FeedbackOptions.styled";
 
-const FeedbackOptions = ({ onLeaveFeedback }) => (
-  <Controls>
-    <button type="button" id="good" onClick={onLeaveFeedback}>
-      Good
-    </button>
-    <button type="button" id="neutral" onClick={onLeaveFeedback}>
-      Neutral
-    </button>
-    <button type="button" id="bad" onClick={onLeaveFeedback}>
-      Bad
-    </button>
-  </Controls>
-);
+const FeedbackOptions = ({ options, onLeaveFeedback }) => {
+  return (
+    <Controls>
+      {options.map(option => (
+        <button
+          key={option}
+          type="button"
+          label={option}
+          onClick={() => onLeaveFeedback(option)}
+        >
+          {option.charAt(0).toUpperCase() + option.slice(1)}
+        </button>
+      ))}
+    </Controls>
+  );
+};
 
 
 export default FeedbackOptions;

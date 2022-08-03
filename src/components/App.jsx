@@ -9,14 +9,10 @@ class App extends Component {
     bad: 0,
   };
 
-  onLeaveFeedback = event => {
-    this.setState(
-      prevstate =>
-        event.target.id === 'good'
-          ? { good: prevstate.good + 1 }
-          : event.target.id === 'neutral'
-          ? { neutral: prevstate.neutral + 1 }
-          : { bad: prevstate.bad + 1 },
+  onLeaveFeedback = ev => {
+    this.setState({
+      [ev]: this.state[ev] + 1
+    },
       this.countTotalFeedback,
       );
   };

@@ -8,7 +8,7 @@ import Container from "components/Section/Section.styled";
 const Section = ({ title, state, onLeaveFeedback }) => (
   <Container>
     <h2>{title}</h2>
-        <FeedbackOptions onLeaveFeedback={onLeaveFeedback} />
+    <FeedbackOptions options={["good", "neutral", "bad"]} onLeaveFeedback={onLeaveFeedback} />
         <Statistics
           good={state.good}
           neutral={state.neutral}
