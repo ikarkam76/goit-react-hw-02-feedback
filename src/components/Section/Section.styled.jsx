@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 
 
-const Container = styled.div`
+const Container = styled.section`
   width: 400px;
   margin-left: auto;
   margin-right: auto;

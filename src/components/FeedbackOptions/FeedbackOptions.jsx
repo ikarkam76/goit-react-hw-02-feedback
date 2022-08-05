@@ -1,8 +1,9 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 import Controls from "components/FeedbackOptions/FeedbackOptions.styled";
 
-const FeedbackOptions = ({ options, onLeaveFeedback }) => {
+const FeedBackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <Controls>
       {options.map(option => (
@@ -20,4 +21,9 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
 };
 
 
-export default FeedbackOptions;
+export default FeedBackOptions;
+
+FeedBackOptions.propTypes = {
+  options: PropTypes.array.isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
+}

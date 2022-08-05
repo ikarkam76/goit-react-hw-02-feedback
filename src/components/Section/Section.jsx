@@ -1,28 +1,18 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import Statistics from "components/Statistics/Statistics";
-import FeedbackOptions from 'components/FeedbackOptions/FeedbackOptions';
 
-import Container from "components/Section/Section.styled";
+import Container from "./Section.styled";
 
-const Section = ({ title, state, onLeaveFeedback }) => (
+
+const Section = ({ title, children }) => (
   <Container>
     <h2>{title}</h2>
-    <FeedbackOptions options={["good", "neutral", "bad"]} onLeaveFeedback={onLeaveFeedback} />
-        <Statistics
-          good={state.good}
-          neutral={state.neutral}
-          bad={state.bad}
-          total={state.total}
-          positivePercentage={state.percentage}
-        />
+    {children}
   </Container>
-);
+)
 
 export default Section;
 
 Section.propTypes = {
-  title: PropTypes.string.isRequired,
-  state: PropTypes.object.isRequired,
-  onLeaveFeedback: PropTypes.func.isRequired,
+  title: PropTypes.string,
 }
